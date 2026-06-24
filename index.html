@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Durgesh Sharma</title>
-  <meta name="description" content="Professional portfolio website with About, Experience, Projects, and Contact sections." />
+  <title>Projects | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #f7f1e8;
-      --card: rgba(255, 255, 255, 0.45);
-      --text: #2f2f2f;
-      --muted: #66615a;
-      --line: rgba(47, 47, 47, 0.10);
-      --shadow: 0 18px 45px rgba(47, 47, 47, 0.10);
-      --accent: #2f2f2f;
-      --radius: 28px;
+      --card: rgba(255, 255, 255, 0.55);
+      --text: #313131;
+      --muted: #6c655d;
+      --line: rgba(49, 49, 49, 0.1);
+      --shadow: 0 18px 38px rgba(49, 49, 49, 0.16);
+      --radius: 26px;
     }
 
     * { box-sizing: border-box; }
@@ -25,8 +23,8 @@
     body {
       margin: 0;
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.85), transparent 35%), var(--bg);
       color: var(--text);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.9), transparent 30%), var(--bg);
       line-height: 1.6;
     }
 
@@ -34,7 +32,7 @@
     img { max-width: 100%; display: block; }
 
     .container {
-      width: min(1180px, calc(100% - 40px));
+      width: min(1180px, calc(100% - 36px));
       margin: 0 auto;
     }
 
@@ -42,8 +40,8 @@
       position: sticky;
       top: 0;
       z-index: 20;
+      background: rgba(247, 241, 232, 0.82);
       backdrop-filter: blur(14px);
-      background: rgba(247, 241, 232, 0.72);
       border-bottom: 1px solid var(--line);
     }
 
@@ -51,282 +49,136 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 26px 0;
-      gap: 20px;
+      gap: 18px;
+      padding: 24px 0;
+      flex-wrap: wrap;
     }
 
     .brand {
       font-size: 1.8rem;
       font-weight: 700;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 44px;
+      gap: 28px;
       flex-wrap: wrap;
-      justify-content: flex-end;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
+      color: var(--muted);
     }
 
-    .nav-links a {
-      position: relative;
-      padding-bottom: 4px;
-      color: var(--text);
-      opacity: 0.95;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.2s ease;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a:focus-visible::after {
-      width: 100%;
-    }
+    .nav-links a:hover { color: var(--text); }
 
     .hero {
-      padding: 76px 0 40px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 30px;
-      align-items: center;
-      min-height: 72vh;
+      padding: 70px 0 36px;
+      text-align: center;
     }
 
     .hero h1 {
-      font-size: clamp(3.4rem, 7vw, 6.3rem);
-      line-height: 0.95;
+      margin: 0;
+      font-size: clamp(2.8rem, 5vw, 4.3rem);
+      line-height: 1;
       letter-spacing: -0.06em;
-      margin: 0 0 24px;
-      max-width: 9ch;
     }
 
     .hero p {
-      font-size: 1.2rem;
+      margin: 18px auto 0;
+      max-width: 720px;
       color: var(--muted);
-      max-width: 42rem;
-      margin: 0 0 34px;
+      font-size: 1.05rem;
     }
 
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-      width: fit-content;
+    .projects {
+      padding: 16px 0 70px;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 185px;
-      padding: 16px 26px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.68);
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .project-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid rgba(49, 49, 49, 0.08);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(47,47,47,0.08);
-      font-weight: 600;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      padding: 22px;
+      min-height: 100%;
     }
 
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 22px 50px rgba(47,47,47,0.14); }
-
-    .hero-image {
-      justify-self: end;
-      width: min(100%, 470px);
-      aspect-ratio: 1 / 1.06;
-      border-radius: 34px;
+    .project-image {
+      width: 100%;
+      height: 260px;
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(47,47,47,0.08);
-      background: rgba(255,255,255,0.35);
+      background: #fff;
+      border: 1px solid rgba(49, 49, 49, 0.08);
+      margin-bottom: 22px;
     }
 
-    .hero-image img {
+    .project-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    section {
-      padding: 54px 0;
-    }
-
-    .panel {
-      background: var(--card);
-      border: 1px solid rgba(47,47,47,0.08);
-      box-shadow: var(--shadow);
-      border-radius: 28px;
-      padding: 42px;
-      backdrop-filter: blur(10px);
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: clamp(2rem, 3vw, 3rem);
-      margin: 0 0 28px;
+    .project-card h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.5rem, 2vw, 2.1rem);
+      line-height: 1.15;
       letter-spacing: -0.04em;
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .info-card {
-      padding: 24px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.55);
-      border: 1px solid rgba(47,47,47,0.08);
-    }
-
-    .info-card h3 {
-      margin: 0 0 12px;
-      font-size: 1.2rem;
-    }
-
-    .info-card p,
-    .info-card li {
-      color: var(--muted);
-    }
-
-    .info-card ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 18px;
-    }
-
-    .timeline-item {
-      padding: 22px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.62);
-      border: 1px solid rgba(47,47,47,0.08);
-    }
-
-    .timeline-item small {
-      display: block;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .project {
-      padding: 24px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.64);
-      border: 1px solid rgba(47,47,47,0.08);
-      min-height: 100%;
-    }
-
-    .project .tag {
-      display: inline-block;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(47,47,47,0.09);
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .project h3 {
-      margin: 0 0 10px;
-      font-size: 1.2rem;
-    }
-
-    .project p,
-    .project li {
-      color: var(--muted);
-    }
-
-    .project ul {
-      margin: 12px 0 0;
-      padding-left: 18px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 24px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .contact-list a {
+    .source-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 14px;
       padding: 16px 18px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.65);
-      border: 1px solid rgba(47,47,47,0.08);
-      font-weight: 500;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(49,49,49,0.08);
+      font-weight: 600;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .source-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(49,49,49,0.12);
+    }
+
+    .wide {
+      grid-column: 1 / -1;
+      max-width: 50%;
+      margin: 0 auto;
     }
 
     footer {
-      padding: 28px 0 50px;
+      padding: 0 0 40px;
       text-align: center;
       color: var(--muted);
     }
 
-    .muted { color: var(--muted); }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .about-grid,
-      .projects-grid,
-      .contact-grid {
+    @media (max-width: 900px) {
+      .projects-grid {
         grid-template-columns: 1fr;
       }
-
-      .hero-image {
-        justify-self: start;
-        width: min(100%, 520px);
-      }
-
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        gap: 24px;
-      }
-
-      .hero h1 {
+      .wide {
         max-width: 100%;
       }
     }
 
     @media (max-width: 640px) {
-      .container { width: min(100% - 24px, 1180px); }
-      .hero { padding-top: 34px; }
-      .hero h1 { font-size: clamp(2.8rem, 15vw, 4.2rem); }
-      .panel { padding: 24px; }
-      .buttons { width: 100%; }
-      .btn { width: 100%; }
-      .nav-links { gap: 16px; }
+      .container { width: min(100% - 22px, 1180px); }
+      .hero { padding-top: 46px; }
+      .project-image { height: 220px; }
+      .nav { justify-content: center; }
+      .brand { width: 100%; text-align: center; }
+      .nav-links { justify-content: center; }
     }
   </style>
 </head>
@@ -335,142 +187,54 @@
     <div class="container nav">
       <div class="brand">Portfolio</div>
       <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="index.html#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <h1>Hi, I'm Durgesh Sharma</h1>
-          <p>
-            I’m a technology professional focused on building, analyzing, and delivering data-driven
-            solutions using Python, SQL, and cloud platforms. I also create practical AWS labs and
-            project-based learning content.
-          </p>
-          <div class="buttons">
-            <a class="btn" href="#contact">Contact Me</a>
-            <a class="btn" href="resume.pdf" download>Download Resume</a>
-          </div>
-        </div>
-
-        <div class="hero-image">
-          <img src="profile.jpg" alt="Durgesh Sharma profile photo" />
-        </div>
+      <div class="container">
+        <h1>Projects</h1>
+        <p>Selected work showing product development, data engineering, cloud automation, and streaming analytics.</p>
       </div>
     </section>
 
-    <section id="about">
-      <div class="container panel">
-        <h2 class="section-title">About</h2>
-        <div class="about-grid">
-          <div class="info-card">
-            <h3>Education</h3>
-            <p>
-              Add your degree, university, and graduation year here.
-            </p>
+    <section class="projects">
+      <div class="container projects-grid">
+        <article class="project-card">
+          <div class="project-image">
+            <img src="images/bookstore-project.png" alt="BookStore project preview" />
           </div>
-          <div class="info-card">
-            <h3>Summary</h3>
-            <p>
-              I design and teach hands-on cloud, data, and AI projects with a focus on AWS services,
-              analytics pipelines, and machine learning workflows.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+          <h2>BookStore End-to-End Development</h2>
+          <a class="source-link" href="https://github.com/your-username/bookstore-project" target="_blank" rel="noreferrer">Source</a>
+        </article>
 
-    <section id="experience">
-      <div class="container panel">
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <small>AWS / Cloud / Teaching</small>
-            <h3>Cloud Lab & Project Development</h3>
-            <p>
-              Created lab exercises and guided students through AWS services such as EC2, Lambda,
-              DynamoDB, S3, CloudWatch, Kinesis, Glue, Athena, and QuickSight.
-            </p>
+        <article class="project-card">
+          <div class="project-image">
+            <img src="images/bigquery-project.png" alt="Automated data upload to BigQuery preview" />
           </div>
-          <div class="timeline-item">
-            <small>Data / Analytics</small>
-            <h3>Data Pipeline and Analytics Projects</h3>
-            <p>
-              Built real-time and batch data workflows, cleaned datasets, and presented insights with
-              clear documentation and dashboards.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+          <h2>Automated data upload to Bigquery</h2>
+          <a class="source-link" href="https://github.com/your-username/bigquery-project" target="_blank" rel="noreferrer">Source</a>
+        </article>
 
-    <section id="projects">
-      <div class="container panel">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-          <article class="project">
-            <span class="tag">AWS Streaming</span>
-            <h3>Real-Time Log Analytics</h3>
-            <p>CloudWatch logs to S3, Lambda transformation, and analytics-ready output.</p>
-            <ul>
-              <li>CSV and JSON export</li>
-              <li>Streaming pipeline</li>
-              <li>Monitoring workflow</li>
-            </ul>
-          </article>
-          <article class="project">
-            <span class="tag">Machine Learning</span>
-            <h3>Recommendation System</h3>
-            <p>Explored user-item patterns and built a recommendation workflow in Python.</p>
-            <ul>
-              <li>Data preprocessing</li>
-              <li>Model evaluation</li>
-              <li>Results summary</li>
-            </ul>
-          </article>
-          <article class="project">
-            <span class="tag">Data Analytics</span>
-            <h3>Spotify / Netflix Analysis</h3>
-            <p>Used data cleaning, visualization, and cloud tools to build portfolio-ready insights.</p>
-            <ul>
-              <li>AWS Glue / Athena</li>
-              <li>QuickSight dashboard</li>
-              <li>Readable documentation</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container panel">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-grid">
-          <div class="info-card">
-            <h3>Get in touch</h3>
-            <p>
-              Replace the placeholders below with your real contact details before publishing.
-            </p>
+        <article class="project-card wide">
+          <div class="project-image">
+            <img src="images/kafka-project.png" alt="Streaming Data Analysis using Kafka preview" />
           </div>
-          <div class="contact-list">
-            <a href="mailto:your-email@example.com">your-email@example.com</a>
-            <a href="https://github.com/neurosharma" target="_blank" rel="noreferrer">GitHub Profile</a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn Profile</a>
-          </div>
-        </div>
+          <h2>Streaming Data Analysis using Kafka</h2>
+          <a class="source-link" href="https://github.com/your-username/kafka-project" target="_blank" rel="noreferrer">Source</a>
+        </article>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <p>© <span id="year"></span> Durgesh Sharma. Built for GitHub Pages.</p>
+      <p>© <span id="year"></span> Durgesh Sharma</p>
     </div>
   </footer>
 
