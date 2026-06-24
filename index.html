@@ -3,31 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Durgesh Sharma | Portfolio</title>
-  <meta name="description" content="Professional portfolio of Durgesh Sharma: AWS, AI, machine learning, data analytics, and teaching projects." />
+  <title>Portfolio | Durgesh Sharma</title>
+  <meta name="description" content="Professional portfolio website with About, Experience, Projects, and Contact sections." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b1020;
-      --panel: rgba(16, 24, 45, 0.75);
-      --panel-strong: #121a33;
-      --text: #eef2ff;
-      --muted: #a9b4d0;
-      --accent: #7c8cff;
-      --accent-2: #62d6ff;
-      --border: rgba(255, 255, 255, 0.08);
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-      --radius: 24px;
+      --bg: #f7f1e8;
+      --card: rgba(255, 255, 255, 0.45);
+      --text: #2f2f2f;
+      --muted: #66615a;
+      --line: rgba(47, 47, 47, 0.10);
+      --shadow: 0 18px 45px rgba(47, 47, 47, 0.10);
+      --accent: #2f2f2f;
+      --radius: 28px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(124,140,255,0.18), transparent 32%),
-        radial-gradient(circle at top right, rgba(98,214,255,0.12), transparent 30%),
-        linear-gradient(180deg, #070b16 0%, #0b1020 100%);
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.85), transparent 35%), var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
@@ -36,552 +34,434 @@
     img { max-width: 100%; display: block; }
 
     .container {
-      width: min(1120px, calc(100% - 32px));
+      width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
     }
 
-    .nav {
+    header {
       position: sticky;
       top: 0;
       z-index: 20;
-      backdrop-filter: blur(16px);
-      background: rgba(7, 11, 22, 0.72);
-      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+      background: rgba(247, 241, 232, 0.72);
+      border-bottom: 1px solid var(--line);
     }
 
-    .nav-inner {
+    .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 0;
-      gap: 16px;
+      padding: 26px 0;
+      gap: 20px;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.3px;
-    }
-
-    .brand-badge {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #08101f;
-      font-weight: 900;
-      box-shadow: 0 10px 24px rgba(124, 140, 255, 0.3);
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
-      color: var(--muted);
+      gap: 44px;
       flex-wrap: wrap;
       justify-content: flex-end;
+      font-size: 1.05rem;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a {
+      position: relative;
+      padding-bottom: 4px;
+      color: var(--text);
+      opacity: 0.95;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      width: 100%;
+    }
 
     .hero {
-      padding: 72px 0 30px;
+      padding: 76px 0 40px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(18,26,51,0.88), rgba(12,18,36,0.82));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-main {
-      padding: 38px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .glow {
-      position: absolute;
-      inset: auto -60px -100px auto;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(98,214,255,0.22), transparent 65%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      gap: 8px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 30px;
       align-items: center;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
+      min-height: 72vh;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.4rem, 7vw, 6.3rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      margin: 0 0 24px;
+      max-width: 9ch;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
       color: var(--muted);
-      border: 1px solid var(--border);
-      font-size: 0.92rem;
+      max-width: 42rem;
+      margin: 0 0 34px;
     }
 
-    h1 {
-      margin: 18px 0 10px;
-      font-size: clamp(2.4rem, 5vw, 4.6rem);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 64ch;
-      margin-bottom: 28px;
-    }
-
-    .cta-row {
+    .buttons {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
+      flex-direction: column;
+      gap: 22px;
+      width: fit-content;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 14px 18px;
-      border-radius: 16px;
-      font-weight: 700;
-      border: 1px solid var(--border);
-      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-      background: rgba(255,255,255,0.03);
+      min-width: 185px;
+      padding: 16px 26px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.68);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(47,47,47,0.08);
+      font-weight: 600;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
-    .btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.18); }
-    .btn.primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #08101f;
-      border: none;
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 22px 50px rgba(47,47,47,0.14); }
+
+    .hero-image {
+      justify-self: end;
+      width: min(100%, 470px);
+      aspect-ratio: 1 / 1.06;
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(47,47,47,0.08);
+      background: rgba(255,255,255,0.35);
     }
 
-    .hero-side {
-      padding: 28px;
-      display: grid;
-      gap: 16px;
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .profile {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-    }
-
-    .avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(124,140,255,0.9), rgba(98,214,255,0.9));
-      display: grid;
-      place-items: center;
-      color: #08101f;
-      font-size: 1.6rem;
-      font-weight: 900;
-      flex-shrink: 0;
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .mini-stat {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-    }
-
-    .mini-stat strong {
-      display: block;
-      font-size: 1.25rem;
-      margin-bottom: 4px;
-    }
-
-    section { padding: 22px 0; }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 14px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(1.5rem, 2vw, 2.2rem);
-      letter-spacing: -0.03em;
-    }
-
-    .section-head p { margin: 0; color: var(--muted); max-width: 60ch; }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+    section {
+      padding: 54px 0;
     }
 
     .panel {
-      padding: 22px;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,0.035);
-      border: 1px solid var(--border);
+      background: var(--card);
+      border: 1px solid rgba(47,47,47,0.08);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      padding: 42px;
+      backdrop-filter: blur(10px);
     }
 
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin: 0 0 28px;
+      letter-spacing: -0.04em;
     }
 
-    .chip {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-size: 0.95rem;
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
     }
 
-    .project-card h3, .panel h3 {
-      margin: 0 0 10px;
-      font-size: 1.15rem;
+    .info-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(47,47,47,0.08);
     }
 
-    .project-card p, .panel p, .project-card li { color: var(--muted); }
+    .info-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+    }
 
-    .project-card ul {
-      margin: 12px 0 0;
+    .info-card p,
+    .info-card li {
+      color: var(--muted);
+    }
+
+    .info-card ul {
+      margin: 0;
       padding-left: 18px;
-    }
-
-    .tag {
-      display: inline-block;
-      margin-bottom: 12px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #08101f;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      padding: 7px 10px;
-      border-radius: 999px;
     }
 
     .timeline {
       display: grid;
-      gap: 14px;
+      gap: 18px;
     }
 
     .timeline-item {
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(47,47,47,0.08);
     }
 
-    .timeline-item small { color: var(--muted); }
-    .timeline-item h3 { margin-top: 4px; }
+    .timeline-item small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.64);
+      border: 1px solid rgba(47,47,47,0.08);
+      min-height: 100%;
+    }
+
+    .project .tag {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(47,47,47,0.09);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .project h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .project p,
+    .project li {
+      color: var(--muted);
+    }
+
+    .project ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
     }
 
     .contact-list {
       display: grid;
       gap: 12px;
-      margin-top: 14px;
     }
 
     .contact-list a {
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      color: var(--text);
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(47,47,47,0.08);
+      font-weight: 500;
     }
 
     footer {
-      padding: 34px 0 48px;
-      color: var(--muted);
+      padding: 28px 0 50px;
       text-align: center;
+      color: var(--muted);
     }
 
     .muted { color: var(--muted); }
 
-    @media (max-width: 900px) {
-      .hero-grid, .grid-3, .grid-2, .contact-grid {
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .projects-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
-      .nav-inner { flex-direction: column; align-items: flex-start; }
-      .nav-links { justify-content: flex-start; }
+
+      .hero-image {
+        justify-self: start;
+        width: min(100%, 520px);
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 24px;
+      }
+
+      .hero h1 {
+        max-width: 100%;
+      }
     }
 
-    @media (max-width: 600px) {
-      .hero { padding-top: 44px; }
-      .hero-main, .hero-side { padding: 22px; }
-      .mini-grid { grid-template-columns: 1fr; }
-      h1 { font-size: 2.25rem; }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 24px, 1180px); }
+      .hero { padding-top: 34px; }
+      .hero h1 { font-size: clamp(2.8rem, 15vw, 4.2rem); }
+      .panel { padding: 24px; }
+      .buttons { width: 100%; }
+      .btn { width: 100%; }
+      .nav-links { gap: 16px; }
     }
   </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand">
-        <div class="brand-badge">DS</div>
-        <div>
-          <div>Durgesh Sharma</div>
-          <div class="muted" style="font-size:0.9rem;">AWS • AI • Data • Education</div>
-        </div>
-      </div>
+  <header>
+    <div class="container nav">
+      <div class="brand">Portfolio</div>
       <nav class="nav-links">
         <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
+  <main>
     <section class="hero">
-      <div class="hero-grid">
-        <div class="card hero-main">
-          <div class="glow"></div>
-          <span class="eyebrow">Open for Data, Cloud, AI, and Teaching roles</span>
-          <h1>Building practical cloud and AI solutions with measurable impact.</h1>
-          <p class="lead">
-            I am Durgesh Sharma, an educator and technologist focused on AWS cloud services,
-            machine learning, data analytics, and hands-on learning experiences. I enjoy turning
-            complex ideas into simple, real-world projects that students and employers can use.
+      <div class="container hero-grid">
+        <div>
+          <h1>Hi, I'm Durgesh Sharma</h1>
+          <p>
+            I’m a technology professional focused on building, analyzing, and delivering data-driven
+            solutions using Python, SQL, and cloud platforms. I also create practical AWS labs and
+            project-based learning content.
           </p>
-          <div class="cta-row">
-            <a class="btn primary" href="#projects">View Projects</a>
+          <div class="buttons">
+            <a class="btn" href="#contact">Contact Me</a>
             <a class="btn" href="resume.pdf" download>Download Resume</a>
-            <a class="btn" href="mailto:your-email@example.com">Email Me</a>
           </div>
         </div>
 
-        <aside class="card hero-side">
-          <div class="profile">
-            <div class="avatar">D</div>
-            <div>
-              <strong>Durgesh Sharma</strong>
-              <div class="muted">Cloud + AI Portfolio</div>
-            </div>
-          </div>
-          <div class="mini-grid">
-            <div class="mini-stat">
-              <strong>10+</strong>
-              Projects & labs
-            </div>
-            <div class="mini-stat">
-              <strong>AWS</strong>
-              Cloud workflows
-            </div>
-            <div class="mini-stat">
-              <strong>ML</strong>
-              Predictive systems
-            </div>
-            <div class="mini-stat">
-              <strong>Teach</strong>
-              Student-focused labs
-            </div>
-          </div>
-          <div class="panel">
-            <h3>Current Focus</h3>
-            <p>Creating portfolio-ready demos for AWS, data pipelines, and applied machine learning.</p>
-          </div>
-        </aside>
+        <div class="hero-image">
+          <img src="profile.jpg" alt="Durgesh Sharma profile photo" />
+        </div>
       </div>
     </section>
 
     <section id="about">
-      <div class="section-head">
-        <div>
-          <h2>About Me</h2>
-          <p>A short professional summary that makes it easy for recruiters to understand your background.</p>
+      <div class="container panel">
+        <h2 class="section-title">About</h2>
+        <div class="about-grid">
+          <div class="info-card">
+            <h3>Education</h3>
+            <p>
+              Add your degree, university, and graduation year here.
+            </p>
+          </div>
+          <div class="info-card">
+            <h3>Summary</h3>
+            <p>
+              I design and teach hands-on cloud, data, and AI projects with a focus on AWS services,
+              analytics pipelines, and machine learning workflows.
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="panel">
-        <p>
-          I build and teach practical technology solutions in AWS cloud computing, machine learning,
-          data analytics, and programming. My work includes lab creation, real-time data processing,
-          and student-friendly project design. I care about clear documentation, clean implementation,
-          and making technical concepts easy to learn.
-        </p>
       </div>
     </section>
 
-    <section id="skills">
-      <div class="section-head">
-        <div>
-          <h2>Skills</h2>
-          <p>A focused set of tools and capabilities that fit cloud, data, AI, and education roles.</p>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="chip-row">
-          <span class="chip">Python</span>
-          <span class="chip">Java</span>
-          <span class="chip">SQL</span>
-          <span class="chip">AWS Lambda</span>
-          <span class="chip">S3</span>
-          <span class="chip">DynamoDB</span>
-          <span class="chip">CloudWatch</span>
-          <span class="chip">Kinesis</span>
-          <span class="chip">Glue</span>
-          <span class="chip">Athena</span>
-          <span class="chip">QuickSight</span>
-          <span class="chip">Machine Learning</span>
-          <span class="chip">Data Visualization</span>
-          <span class="chip">Curriculum Design</span>
+    <section id="experience">
+      <div class="container panel">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <small>AWS / Cloud / Teaching</small>
+            <h3>Cloud Lab & Project Development</h3>
+            <p>
+              Created lab exercises and guided students through AWS services such as EC2, Lambda,
+              DynamoDB, S3, CloudWatch, Kinesis, Glue, Athena, and QuickSight.
+            </p>
+          </div>
+          <div class="timeline-item">
+            <small>Data / Analytics</small>
+            <h3>Data Pipeline and Analytics Projects</h3>
+            <p>
+              Built real-time and batch data workflows, cleaned datasets, and presented insights with
+              clear documentation and dashboards.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="projects">
-      <div class="section-head">
-        <div>
-          <h2>Featured Projects</h2>
-          <p>Use 3 to 5 strong projects. Each one should show a problem, your role, and the result.</p>
-        </div>
-      </div>
-      <div class="grid-3">
-        <article class="card panel project-card">
-          <span class="tag">AWS • Streaming</span>
-          <h3>Real-Time Log Analytics Pipeline</h3>
-          <p>Processed CloudWatch logs into S3, transformed them with Lambda, and analyzed them in real time.</p>
-          <ul>
-            <li>Captured and filtered logs automatically</li>
-            <li>Exported data as CSV and JSON</li>
-            <li>Supported live monitoring and analysis</li>
-          </ul>
-        </article>
-
-        <article class="card panel project-card">
-          <span class="tag">ML • Recommendation</span>
-          <h3>Netflix Recommendation System</h3>
-          <p>Built a recommendation project using machine learning concepts and dataset exploration.</p>
-          <ul>
-            <li>Data cleaning and feature selection</li>
-            <li>Model experimentation and evaluation</li>
-            <li>Clear findings for portfolio presentation</li>
-          </ul>
-        </article>
-
-        <article class="card panel project-card">
-          <span class="tag">Teaching • Labs</span>
-          <h3>AWS Hands-On Learning Labs</h3>
-          <p>Designed beginner-friendly labs for students to learn EC2, Lambda, DynamoDB, S3, CloudWatch, and Glue.</p>
-          <ul>
-            <li>Step-by-step instructions</li>
-            <li>Cloud classroom workflow</li>
-            <li>Reusable teaching material</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="section-head">
-        <div>
-          <h2>Experience & Certifications</h2>
-          <p>Highlight your teaching, cloud practice, and credentials in a simple timeline.</p>
-        </div>
-      </div>
-      <div class="grid-2">
-        <div class="timeline">
-          <div class="timeline-item">
-            <small>Teaching & Curriculum</small>
-            <h3>AWS Lab Development</h3>
-            <p>Created structured labs and project workflows for cloud and data engineering topics.</p>
-          </div>
-          <div class="timeline-item">
-            <small>Applied Projects</small>
-            <h3>Cloud + Data Pipeline Work</h3>
-            <p>Built projects combining S3, Lambda, CloudWatch, Kinesis, Glue, and analytics tools.</p>
-          </div>
-        </div>
-        <div class="panel">
-          <h3>Certifications</h3>
-          <p>List your certifications here and link to proof when possible.</p>
-          <div class="chip-row">
-            <span class="chip">AWS Academy</span>
-            <span class="chip">AWS Cloud Practitioner</span>
-            <span class="chip">Machine Learning</span>
-            <span class="chip">Data Analytics</span>
-          </div>
-          <p class="muted" style="margin-top:14px;">Tip: add a certificate PDF or badge image in your repository.</p>
+      <div class="container panel">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+          <article class="project">
+            <span class="tag">AWS Streaming</span>
+            <h3>Real-Time Log Analytics</h3>
+            <p>CloudWatch logs to S3, Lambda transformation, and analytics-ready output.</p>
+            <ul>
+              <li>CSV and JSON export</li>
+              <li>Streaming pipeline</li>
+              <li>Monitoring workflow</li>
+            </ul>
+          </article>
+          <article class="project">
+            <span class="tag">Machine Learning</span>
+            <h3>Recommendation System</h3>
+            <p>Explored user-item patterns and built a recommendation workflow in Python.</p>
+            <ul>
+              <li>Data preprocessing</li>
+              <li>Model evaluation</li>
+              <li>Results summary</li>
+            </ul>
+          </article>
+          <article class="project">
+            <span class="tag">Data Analytics</span>
+            <h3>Spotify / Netflix Analysis</h3>
+            <p>Used data cleaning, visualization, and cloud tools to build portfolio-ready insights.</p>
+            <ul>
+              <li>AWS Glue / Athena</li>
+              <li>QuickSight dashboard</li>
+              <li>Readable documentation</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="contact">
-      <div class="section-head">
-        <div>
-          <h2>Contact</h2>
-          <p>Make it easy for recruiters and collaborators to reach you.</p>
-        </div>
-      </div>
-      <div class="contact-grid">
-        <div class="panel">
-          <h3>Let’s connect</h3>
-          <p>Use your real email, LinkedIn, and GitHub links here before publishing.</p>
+      <div class="container panel">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-grid">
+          <div class="info-card">
+            <h3>Get in touch</h3>
+            <p>
+              Replace the placeholders below with your real contact details before publishing.
+            </p>
+          </div>
           <div class="contact-list">
             <a href="mailto:your-email@example.com">your-email@example.com</a>
+            <a href="https://github.com/neurosharma" target="_blank" rel="noreferrer">GitHub Profile</a>
             <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn Profile</a>
-            <a href="https://github.com" target="_blank" rel="noreferrer">GitHub Profile</a>
-          </div>
-        </div>
-        <div class="panel">
-          <h3>Portfolio Checklist</h3>
-          <p>
-            Replace the placeholder email, add your resume PDF as <strong>resume.pdf</strong>, and insert real project links.
-            Then publish the folder through GitHub Pages.
-          </p>
-          <div class="chip-row">
-            <span class="chip">About</span>
-            <span class="chip">Skills</span>
-            <span class="chip">Projects</span>
-            <span class="chip">Resume</span>
-            <span class="chip">Contact</span>
           </div>
         </div>
       </div>
